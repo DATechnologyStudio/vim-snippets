@@ -99,18 +99,19 @@ snippet mu
 # class
 snippet cl
 	/*! \class $1
-	 *  \brief ${3:Brief class description}
+	 *  \brief ${2:Brief class description}
 	 *
-	 *  ${4:Detailed description}
+	 *  ${3:Detailed description}
 	 */
 	class ${1:`vim_snippets#Filename('$1', 'name')`}
 	{
 	public:
-		$1(${2});
-		virtual ~$1();
+		$1();
+		$1(${4});
+		~$1();
 
-	protected:
-		m_${5}; /*!< ${6:Member description} */
+	private:
+		$5
 	};
 # member function implementation
 snippet mfun
@@ -161,7 +162,7 @@ snippet dmfun2
 snippet ns
 	namespace ${1:DA}
 	{
-		${0}
+	${0}
 	} /* namespace $1 */
 #######################################################################
 #                                 IO                                  #
