@@ -4,13 +4,7 @@ extends c_base
 #######################################################################
 # main
 snippet main
-	int main(int argc, const char *argv[])
-	{
-		${0}
-	}
-# main(void)
-snippet mainn
-	int main()
+	int main([[maybe_unused]] int argc, [[maybe_unused]] const char *argv[])
 	{
 		${0}
 	}
