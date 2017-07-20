@@ -154,10 +154,22 @@ snippet dmfun2
 	}
 # namespace
 snippet ns
-	namespace ${1:DA}
+	#if __cpp_nested_namespace_definitions >= 201411
+	namespace ${1:DA}::${2:`vim_snippets#Filename('', 'my')`}
 	{
+	#else
+	namespace $1
+	{
+	namespace $2
+	{
+	#endif
 	${0}
+	#if __cpp_nested_namespace_definitions >= 201411
+	} // namespace $1::$2
+	#else
+	} // namespace $2
 	} // namespace $1
+	#endif
 #######################################################################
 #                                 IO                                  #
 #######################################################################
