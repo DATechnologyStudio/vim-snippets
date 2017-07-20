@@ -5,9 +5,11 @@ extends c_base
 # main
 snippet main
 	int main([[maybe_unused]] int argc, [[maybe_unused]] const char *argv[])
+	try
 	{
 		${0}
 	}
+	DA_CATCH_MAIN
 #######################################################################
 #                               Include                               #
 #######################################################################
@@ -232,5 +234,5 @@ snippet try
 	{
 		${1}
 	}
-	DA_CATCH_EXCEPTION
+	DA_CATCH
 
