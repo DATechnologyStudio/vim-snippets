@@ -156,6 +156,11 @@ snippet dmfun2
 	}
 # namespace
 snippet ns
+	namespace ${1:DA}
+	{
+	${0}
+	} // namespace $1
+snippet ns2
 	#if __cpp_nested_namespace_definitions >= 201411
 	namespace ${1:DA}::${2:`vim_snippets#Filename('', 'my')`}
 	{
@@ -169,6 +174,26 @@ snippet ns
 	#if __cpp_nested_namespace_definitions >= 201411
 	} // namespace $1::$2
 	#else
+	} // namespace $2
+	} // namespace $1
+	#endif
+snippet ns3
+	#if __cpp_nested_namespace_definitions >= 201411
+	namespace ${1:DA}::$2::${3:`vim_snippets#Filename('', 'my')`}
+	{
+	#else
+	namespace $1
+	{
+	namespace $2
+	{
+	namespace $3
+	{
+	#endif
+	${0}
+	#if __cpp_nested_namespace_definitions >= 201411
+	} // namespace $1::$2::$3
+	#else
+	} // namespace $3
 	} // namespace $2
 	} // namespace $1
 	#endif
