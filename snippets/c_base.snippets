@@ -36,29 +36,23 @@ snippet once
 #######################################################################
 # if
 snippet if
-	if (${1:true})
-	{
+	if (${1:true}) {
 		${0:${VISUAL}}
 	}
 snippet ife
-	if (${1:true})
-	{
+	if (${1:true}) {
 		${2:${VISUAL}}
-	}
-	else
-	{
+	} else {
 		${0}
 	}
 # else
 snippet el
-	else
-	{
+	else {
 		${0:${VISUAL}}
 	}
 # else if
 snippet elif
-	else if (${1:true})
-	{
+	else if (${1:true}) {
 		${0:${VISUAL}}
 	}
 # ifi
@@ -89,7 +83,11 @@ snippet switchndef
 snippet case
 	case ${1:/* variable case */}:
 		${2}
-		${3:break;}
+		break;
+snippet casenb
+	case ${1:/* variable case */}:
+		${2}
+		[[fallthrough]]
 snippet ret
 	return ${0};
 #######################################################################
@@ -97,20 +95,17 @@ snippet ret
 #######################################################################
 # for
 snippet for
-	for (${1:int} ${2:i} = ${3:0}; $2 ${4:<} ${5:count}; ++$2)
-	{
+	for (${1:int} ${2:i} = ${3:0}; $2 ${4:<} ${5:count}; ++$2) {
 		${6}
 	}
 # while
 snippet wh
-	while (${1:true})
-	{
+	while (${1:true}) {
 		${0:${VISUAL}}
 	}
 # do... while
 snippet do
-	do
-	{
+	do {
 		${0:${VISUAL}}
 	} while (${1:true});
 #######################################################################
@@ -274,15 +269,15 @@ snippet dtde
 #######################################################################
 snippet getopt
 	int choice;
-	while (1)
-	{
-		static struct option long_options[] =
-		{
+	while (1) {
+		static struct option long_options[] = {
 			/* Use flags like so:
-			{"verbose",	no_argument,	&verbose_flag, 'V'}*/
+			{"verbose", no_argument, &verbose_flag, 'V'}*/
 			/* Argument styles: no_argument, required_argument, optional_argument */
-			{"version", no_argument,	0,	'v'},
-			{"help",	no_argument,	0,	'h'},
+			{"version", no_argument, 0, 'V'},
+			{"help", no_argument, 0, 'h'},
+			{"verbose", no_argument, 0, 'v'},
+			{"quiet", no_argument, 0, 'V'},
 			${1}
 			{0,0,0,0}
 		};
@@ -294,14 +289,12 @@ snippet getopt
 			required_argument: ":"
 			optional_argument: "::" */
 
-		choice = getopt_long( argc, argv, "vh",
-					long_options, &option_index);
+		choice = getopt_long( argc, argv, "vh", long_options, &option_index);
 
 		if (choice == -1)
 			break;
 
-		switch( choice )
-		{
+		switch(choice) {
 			case 'v':
 				${2}
 				break;
@@ -321,8 +314,7 @@ snippet getopt
 	}
 
 	/* Deal with non-option arguments here */
-	while ( optind < argc )
-	{
+	while ( optind < argc ) {
 		${0}
 	}
 ##
