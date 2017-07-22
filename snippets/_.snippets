@@ -1,5 +1,26 @@
 # Global snippets
 
+snippet z "()" i
+	($1)$2
+snippet x "[]" i
+	[$1]$2
+snippet c "{}" i
+	{$1}$2
+snippet v "<>" i
+	<$1>$2
+snippet d '""' i
+	"$1"$2
+snippet s "''" i
+	'$1'$2
+snippet q "+" i
+	 + 
+snippet w "-" i
+	 - 
+snippet e "*" i
+	 * 
+snippet / "/" i
+	 / 
+
 # (c) holds no legal value ;)
 snippet c)
 	Copyright `&enc[:2] == "utf" ? "©" : "(c)"` `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.
