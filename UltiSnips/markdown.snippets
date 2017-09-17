@@ -88,4 +88,19 @@ pre_expand "create_table(snip)"
 snippet "tb(\d+x\d+)" "Customizable table" br
 endsnippet
 
+snippet head "Pelican metadata" b
+Title: ${1:`!v vim_snippets#Filename('$1', 'name')`}
+Date: `!v strftime("%Y-%m-%d")`
+Author: `git config user.name`
+Category: ${2}
+Tags: ${3}
+Summary:
+
+${0}
+endsnippet
+
+snippet modified "Pelican modified" b
+Modified: `strftime("%Y-%m-%d")`
+endsnippet
+
 # vim:ft=snippets:

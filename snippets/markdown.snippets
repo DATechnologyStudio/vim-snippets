@@ -136,16 +136,3 @@ snippet pullquote
 	{% pullquote %}
 	${1:text} {" ${2:quote} "} ${0:text}
 	{% endpullquote %}
-
-snippet head "Pelican metadata" b
-	Title: ${1:`vim_snippets#Filename('$1', 'name')`}
-	Date: `strftime("%Y-%m-%d")`
-	Author: `! git config user.name`
-	Category: ${2}
-	Tags: ${2}
-	Summary:
-
-	${0}
-
-snippet modified "Pelican modified" b
-	Modified: `strftime("%Y-%m-%d")`
