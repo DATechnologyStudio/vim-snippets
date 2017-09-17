@@ -90,7 +90,7 @@ endsnippet
 
 snippet head "Pelican metadata" b
 Title: ${1:`!v vim_snippets#Filename('$1', 'name')`}
-Date: `!v strftime("%Y-%m-%d")`
+Date: `date "+%F %T"`
 Author: `git config user.name`
 Category: ${2}
 Tags: ${3}
