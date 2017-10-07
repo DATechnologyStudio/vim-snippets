@@ -10,6 +10,12 @@ snippet main
 		${0}
 	}
 	DA_CATCH_MAIN
+# main without try
+snippet mainn
+	int main([[maybe_unused]] int argc, [[maybe_unused]] const char *argv[])
+	{
+		${0}
+	}
 #######################################################################
 #                               Include                               #
 #######################################################################
